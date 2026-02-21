@@ -40,7 +40,9 @@ docker run --rm -p 8080:80 moyin-creator:canvas-latest
    - `ghcr.io/<owner>/moyin-creator:sha-<commit>`
    - `ghcr.io/<owner>/moyin-creator:latest`（仅默认分支）
 
-使用 Actions 内置 `GITHUB_TOKEN` 登录 GHCR，无需额外 Docker Hub Secrets。
+使用 Actions 内置 `GITHUB_TOKEN` 登录 GHCR。
+
+如需在工作流中自动将 GHCR 包设为公开，请配置仓库 Secret：`GHCR_PAT`（需具备 packages 管理权限）。
 
 ## 5. 服务器部署（Docker）
 ```bash

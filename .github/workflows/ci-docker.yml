@@ -73,3 +73,14 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Set GHCR package visibility to public
+        if: github.event_name != 'pull_request' && secrets.GHCR_PAT != ''
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GHCR_PAT }}
+          script: |
+            await github.request('PATCH /user/packages/container/{package_name}/visibility', {
+              package_name: 'moyin-creator',
+              visibility: 'public'
+            })

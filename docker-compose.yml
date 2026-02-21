@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   moyin-creator:
-    image: ghcr.io/qiaowenzeng99-tech/moyin-creator:latest
+    image: ghcr.io/qiaowenzeng99-tech/moyin-creator:latest # public
     container_name: moyin-creator
     restart: unless-stopped
     ports:
