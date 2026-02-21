@@ -2,12 +2,12 @@ version: '3.9'
 
 services:
   moyin-creator:
-    image: ghcr.io/memecalculate/moyin-creator:work
+    image: ghcr.io/memecalculate/moyin-creator:latest
     container_name: moyin-creator
     restart: unless-stopped
     ports:
       - "8080:80"
-    # 若你希望在本地直接使用源码构建，可改为：
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
+    # 可按需改成固定版本，例如：
+    # image: ghcr.io/memecalculate/moyin-creator:sha-<commit>
+    # 或使用 work 分支镜像（若存在）：
+    # image: ghcr.io/memecalculate/moyin-creator:work

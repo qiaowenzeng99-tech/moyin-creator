@@ -67,3 +67,5 @@ docker compose up -d
 ```
 
 默认端口：`http://localhost:8080`。
+
+> `docker-compose.yml` 默认使用 `latest` 标签；如需固定版本，建议改为 `sha-<commit>`。
