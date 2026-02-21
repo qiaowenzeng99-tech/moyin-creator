@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  moyin-creator:
+    image: qiaowenzeng/moyin-creator:latest
+    container_name: moyin-creator
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    # 若你希望本地源码直接构建预览，可改为：
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
