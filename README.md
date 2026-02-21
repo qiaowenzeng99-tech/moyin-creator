@@ -10,8 +10,8 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg" alt="License" /></a>
-  <a href="https://github.com/MemeCalculate/moyin-creator/releases"><img src="https://img.shields.io/github/v/release/MemeCalculate/moyin-creator" alt="Release" /></a>
-  <a href="https://github.com/MemeCalculate/moyin-creator/stargazers"><img src="https://img.shields.io/github/stars/MemeCalculate/moyin-creator" alt="Stars" /></a>
+  <a href="https://github.com/qiaowenzeng99-tech/moyin-creator/releases"><img src="https://img.shields.io/github/v/release/qiaowenzeng99-tech/moyin-creator" alt="Release" /></a>
+  <a href="https://github.com/qiaowenzeng99-tech/moyin-creator/stargazers"><img src="https://img.shields.io/github/stars/qiaowenzeng99-tech/moyin-creator" alt="Stars" /></a>
 </p>
 
 <p align="center">
@@ -22,6 +22,7 @@
   <a href="docs/WORKFLOW_GUIDE.md"><strong>📖 工作流教程</strong></a> •
   <a href="#功能特性">功能特性</a> •
   <a href="#快速开始">快速开始</a> •
+  <a href="#docker-部署">Docker 部署</a> •
   <a href="#技术架构">技术架构</a> •
   <a href="#许可证">许可证</a> •
   <a href="#贡献">贡献</a>
@@ -84,6 +85,11 @@
 - 多任务并行队列，自动重试失败任务
 - 适合短剧/动漫番剧批量生产
 
+### 🧭 Canvas AI 驱动交互（MVP）
+- 新增 Canvas 视图，可在统一画布中查看场景/镜头节点
+- 支持命令栏输入并预览执行计划，再执行步骤
+- 提供执行日志与节点状态反馈，便于追踪 AI 工作流
+
 ### 🤖 多供应商 AI 调度
 - 支持多个 AI 图像/视频生成服务商
 - API Key 轮询负载均衡
@@ -100,7 +106,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/MemeCalculate/moyin-creator.git
+git clone https://github.com/qiaowenzeng99-tech/moyin-creator.git
 cd moyin-creator
 
 # 安装依赖
@@ -123,6 +129,22 @@ npm run build
 # 仅编译（不打包）
 npx electron-vite build
 ```
+
+### Docker 部署
+
+如果你希望在服务器或另一台设备快速体验页面，可直接拉取 GHCR 公有镜像：
+
+```bash
+# 方式一：使用仓库内 compose
+docker compose up -d
+
+# 方式二：手工运行
+docker run -d --name moyin-creator -p 8080:80 ghcr.io/qiaowenzeng99-tech/moyin-creator:latest
+```
+
+访问地址：`http://<你的服务器IP>:8080`
+
+> 说明：当前流水线默认在 `main` 分支推送时发布 `latest` 与 `sha-<commit>` 标签。
 
 ## 技术架构
 
@@ -174,7 +196,7 @@ moyin-creator/
 ## 联系
 
 - 📧 Email: [memecalculate@gmail.com](mailto:memecalculate@gmail.com)
-- 🐙 GitHub: [https://github.com/MemeCalculate/moyin-creator](https://github.com/MemeCalculate/moyin-creator)
+- 🐙 GitHub: [https://github.com/qiaowenzeng99-tech/moyin-creator](https://github.com/qiaowenzeng99-tech/moyin-creator)
 
 ### 联系作者
 
@@ -188,5 +210,5 @@ moyin-creator/
 
 ---
 
-<p align="center">Made with ❤️ by <a href="https://github.com/MemeCalculate">MemeCalculate</a></p>
+<p align="center">Made with ❤️ by <a href="https://github.com/qiaowenzeng99-tech">qiaowenzeng99-tech</a></p>
 
