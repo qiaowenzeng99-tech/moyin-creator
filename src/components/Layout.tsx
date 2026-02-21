@@ -23,6 +23,7 @@ import { ScenesView } from "@/components/panels/scenes";
 import { MediaView } from "@/components/panels/media";
 import { SettingsPanel } from "@/components/panels/SettingsPanel";
 import { ExportView } from "@/components/panels/export";
+import { CanvasView } from "@/components/panels/canvas";
 
 export function Layout() {
   const { activeTab, inProject } = useMediaPanelStore();
@@ -41,7 +42,7 @@ export function Layout() {
 
   // Full-screen views (no resizable panels)
   // 这些板块有自己的多栏布局，不需要全局的预览和属性面板
-  const fullScreenTabs = ["export", "settings", "script", "characters", "scenes"];
+  const fullScreenTabs = ["export", "settings", "script", "characters", "scenes", "canvas"];
   if (fullScreenTabs.includes(activeTab)) {
     return (
       <div className="h-full flex bg-background">
@@ -53,13 +54,14 @@ export function Layout() {
           {activeTab === "script" && <ScriptView />}
           {activeTab === "characters" && <CharactersView />}
           {activeTab === "scenes" && <ScenesView />}
+          {activeTab === "canvas" && <CanvasView />}
         </div>
       </div>
     );
   }
 
   // Only show timeline for director and media tabs
-  const showTimeline = activeTab === "director" || activeTab === "sclass" || activeTab === "media";
+  const showTimeline = activeTab === "director" || activeTab === "sclass" || activeTab === "media" || activeTab === "canvas";
 
   // Left panel content based on active tab
   const renderLeftPanel = () => {

@@ -16,7 +16,7 @@ import { create } from "zustand";
 import type { CharacterIdentityAnchors, CharacterNegativePrompt } from "@/types/script";
 
 // Tab-based navigation (simpler flat structure)
-export type Tab = "dashboard" | "script" | "characters" | "scenes" | "director" | "sclass" | "media" | "export" | "settings";
+export type Tab = "dashboard" | "script" | "characters" | "scenes" | "director" | "canvas" | "sclass" | "media" | "export" | "settings";
 
 export interface NavItem {
   id: Tab;
@@ -31,6 +31,7 @@ export const mainNavItems: NavItem[] = [
   { id: "characters", label: "角色", icon: UsersIcon, phase: "02" },
   { id: "scenes", label: "场景", icon: MapPinIcon, phase: "02" },
   { id: "director", label: "导演", icon: ClapperboardIcon, phase: "03" },
+  { id: "canvas", label: "画布", icon: SparklesIcon, phase: "03" },
   { id: "sclass", label: "S级", icon: SparklesIcon, phase: "03" },
   { id: "media", label: "素材", icon: VideoIcon },
   { id: "export", label: "导出", icon: FilmIcon, phase: "04" },
@@ -53,7 +54,7 @@ export interface StageConfig {
 export const stages: StageConfig[] = [
   { id: "script", label: "剧本", phase: "Phase 01", icon: FileTextIcon, tabs: ["script"] },
   { id: "assets", label: "角色与场景", phase: "Phase 02", icon: UsersIcon, tabs: ["characters", "scenes"] },
-  { id: "director", label: "导演工作台", phase: "Phase 03", icon: ClapperboardIcon, tabs: ["director"] },
+  { id: "director", label: "导演工作台", phase: "Phase 03", icon: ClapperboardIcon, tabs: ["director", "canvas"] },
   { id: "export", label: "成片与导出", phase: "Phase 04", icon: FilmIcon, tabs: ["export"] },
 ];
 
@@ -63,6 +64,7 @@ export const tabs: { [key in Tab]: { icon: LucideIcon; label: string; stage?: St
   characters: { icon: UsersIcon, label: "角色", stage: "assets" },
   scenes: { icon: MapPinIcon, label: "场景", stage: "assets" },
   director: { icon: ClapperboardIcon, label: "导演", stage: "director" },
+  canvas: { icon: SparklesIcon, label: "画布", stage: "director" },
   sclass: { icon: SparklesIcon, label: "S级", stage: "director" },
   media: { icon: VideoIcon, label: "素材" },
   export: { icon: FilmIcon, label: "导出", stage: "export" },
