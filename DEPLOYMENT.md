@@ -44,15 +44,15 @@ docker run --rm -p 8080:80 moyin-creator:canvas-latest
 
 ## 5. 服务器部署（Docker）
 ```bash
-docker pull ghcr.io/memecalculate/moyin-creator:<tag>
+docker pull ghcr.io/qiaowenzeng99-tech/moyin-creator:<tag>
 docker stop moyin-creator || true
 docker rm moyin-creator || true
-docker run -d --name moyin-creator -p 80:80 ghcr.io/memecalculate/moyin-creator:<tag>
+docker run -d --name moyin-creator -p 80:80 ghcr.io/qiaowenzeng99-tech/moyin-creator:<tag>
 ```
 
 ## 6. 版本回滚
 ```bash
-docker run -d --name moyin-creator -p 80:80 ghcr.io/memecalculate/moyin-creator:sha-<old-commit>
+docker run -d --name moyin-creator -p 80:80 ghcr.io/qiaowenzeng99-tech/moyin-creator:sha-<old-commit>
 ```
 
 ## 7. 常见问题
