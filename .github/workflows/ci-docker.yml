@@ -65,7 +65,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/work' }}
 
       - name: Build and (optionally) push image
         uses: docker/build-push-action@v6
@@ -78,6 +78,7 @@ jobs:
 
       - name: Set GHCR package visibility to public
         if: github.event_name != 'pull_request' && env.GHCR_PAT != ''
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           github-token: ${{ env.GHCR_PAT }}
